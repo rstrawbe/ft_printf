@@ -73,7 +73,7 @@ int		is_digit(char *str)
 	return (*str > 47 && *str < 58);
 }
 
-int		isFlag(char *str)
+int		is_flag(char *str)
 {
 	char	*flags;
 
@@ -147,7 +147,7 @@ int		ft_strlen(char	*str)
 	return (i);
 }
 
-int		rendera_arg_string(t_spec *spec, va_list ap)
+int		render_arg_string(t_spec *spec, va_list ap)
 {
 	char	*str;
 	char	fill;
@@ -272,7 +272,7 @@ int		render_argument(t_spec *spec, va_list ap)
 	i = 0;
 	i += (spec->format == 'c') ? render_arg_char(spec, ap) : 0;
 	i += (spec->format == '%') ? render_arg_percent(spec, ap) : 0;
-	i += (spec->format == 's') ? rendera_arg_string(spec, ap) : 0;
+	i += (spec->format == 's') ? render_arg_string(spec, ap) : 0;
 	i += (spec->format == 'd') ? render_arg_int(spec, ap) : 0;
 	return (i);
 }
@@ -282,7 +282,7 @@ int		specifier_init(t_spec *spec, char *str, va_list ap)
 	char	*conv;
 
 	specifier_clear(spec);
-	while (*str && (isFlag(str) || is_digit(str)))
+	while (*str && (is_flag(str) || is_digit(str)))
 	{
 		set_fields(spec, str, ap);
 		if (is_digit(str) && !spec->dot && !spec->width)
