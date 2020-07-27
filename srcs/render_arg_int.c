@@ -29,7 +29,7 @@ int		render_arg_int(t_spec *spec, va_list ap)
 	fill_width = spec->width - strlen - spec->show_sign;
 	spec->prec -= strlen;
 	if (spec->prec > 0)
-		fill_width -= spec->prec + spec->show_sign;
+		fill_width -= spec->prec;
 	if (!spec->to_left)
 		i += ft_print_char(' ', fill_width);
 	i += print_sign(number, spec);
