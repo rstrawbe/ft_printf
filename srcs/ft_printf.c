@@ -33,7 +33,7 @@ int		ft_printf(const char *str, ...)
 			i += write(1, str, 1);
 		str++;
 	}
-	//specifier_print(&spec);
+	specifier_print(&spec);
 	va_end(ap);
 	return (i);
 }
