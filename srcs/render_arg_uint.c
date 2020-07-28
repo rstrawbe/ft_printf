@@ -6,7 +6,7 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:09:03 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/28 22:09:10 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/07/28 23:09:44 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		render_arg_uint(t_spec *spec, va_list ap)
 {
-	unsigned int		number;
-	int		fill_width;
-	int		strlen;
-	int		i;
+	unsigned int	number;
+	int				fill_width;
+	int				strlen;
+	int				i;
 
 	i = 0;
 	number = va_arg(ap, unsigned int);
