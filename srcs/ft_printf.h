@@ -46,15 +46,16 @@ int					render_arg_percent(t_spec *spec);
 int					render_arg_char(t_spec *spec, va_list ap);
 int					render_arg_string(t_spec *spec, va_list ap);
 int					render_arg_int(t_spec *spec, va_list ap);
+int					render_arg_uint(t_spec *spec, va_list ap);
 
 int					print_sign(int	num, t_spec *spec);
-int					ft_digit_len(int num);
+int					ft_digit_len(long long num);
 
 int					ft_strlen(char	*str);
 int					ft_print_char(char s, int count);
 int					ft_print_str(char *str, int	pricision);
-void				ft_putnbr(int nb);
-int					ft_print_num(int num);
+int					ft_putnbr(long long nb);
+int					ft_print_num(long long num);
 
 # define FT_PRINTF_CONV "cspdiuxX%"
 # define FT_PRINTF_FLAGS "-+0.*"

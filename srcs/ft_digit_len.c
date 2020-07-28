@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_digit_len(int num)
+int		ft_digit_len(long long num)
 {
 	int		count;
 

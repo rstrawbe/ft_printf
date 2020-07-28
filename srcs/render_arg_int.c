@@ -31,7 +31,7 @@ int		render_arg_int(t_spec *spec, va_list ap)
 	i += print_sign(number, spec);
 	while (spec->prec-- > 0)
 		i += ft_print_char('0', 1);
-	i += ft_print_num(number);
+	i += ft_putnbr(number);
 	i = (spec->to_left) ? i + ft_print_char(' ', fill_width) : i;
 	return (i + strlen);
 }
