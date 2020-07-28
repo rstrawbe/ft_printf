@@ -22,21 +22,16 @@ int		render_arg_int(t_spec *spec, va_list ap)
 	i = 0;
 	number = va_arg(ap, int);
 	strlen = ft_digit_len(number);
-	if (number < 0)
-		strlen++;
+	spec->show_sign = number < 0 ? 1 : spec->show_sign;
 	spec->width = spec->width > spec->prec ? spec->width : spec->prec;
-	spec->width += spec->show_sign;
 	fill_width = spec->width - strlen - spec->show_sign;
 	spec->prec -= strlen;
-	if (spec->prec > 0)
-		fill_width -= spec->prec;
-	if (!spec->to_left)
-		i += ft_print_char(' ', fill_width);
+	fill_width = spec->prec > 0 ? fill_width - spec->prec : fill_width;
+	i = !spec->to_left ? ft_print_char(' ', fill_width) : i;
 	i += print_sign(number, spec);
 	while (spec->prec-- > 0)
 		i += ft_print_char('0', 1);
 	i += ft_print_num(number);
-	if (spec->to_left)
-		i += ft_print_char(' ', fill_width);
-	return (i);
+	i = (spec->to_left) ? i + ft_print_char(' ', fill_width) : i;
+	return (i + strlen);
 }

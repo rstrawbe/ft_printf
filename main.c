@@ -11,10 +11,10 @@ int		main(void)
 
 	// cnt = 0;
 
-    i = printf("|%020.45s|", "str");
+    i = printf("|%-+10.45d|\n", -0572);
 	printf("\n%d\n", i);
 
-	i = ft_printf("|%020.45s|", "str");
+	i = ft_printf("|%-+10.45d|\n", -0572);
 	printf("\n%d\n", i);
 
 

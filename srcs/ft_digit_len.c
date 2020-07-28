@@ -19,5 +19,6 @@ int		ft_digit_len(int num)
 	count = 0;
 	while (++count && num / 10)
 		num /= 10;
+	count = num < 0 ? count++ : count;
 	return (count);
 }
