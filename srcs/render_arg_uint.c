@@ -21,7 +21,7 @@ int		render_arg_uint(t_spec *spec, va_list ap)
 
 	i = 0;
 	number = va_arg(ap, unsigned int);
-	strlen = ft_digit_len(number);
+	strlen = !number && !spec->prec ? 0 : ft_digit_len(number);
 	spec->width = spec->width > spec->prec ? spec->width : spec->prec;
 	fill_width = spec->width - strlen;
 	spec->prec -= strlen;
@@ -29,7 +29,7 @@ int		render_arg_uint(t_spec *spec, va_list ap)
 	i = !spec->to_left ? ft_print_char(' ', fill_width) : i;
 	while (spec->prec-- > 0)
 		i += ft_print_char('0', 1);
-	i += ft_putnbr(number);
+	i += !number && !strlen ? 0 : ft_putnbr(number);
 	i = (spec->to_left) ? i + ft_print_char(' ', fill_width) : i;
 	return (i + strlen);
 }
