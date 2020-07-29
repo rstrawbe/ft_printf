@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_to_base.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/26 19:31:16 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 19:31:18 by rstrawbe         ###   ########.fr       */
+/*   Created: 2020/07/30 01:20:37 by rstrawbe          #+#    #+#             */
+/*   Updated: 2020/07/30 01:21:12 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(unsigned long long nb)
+void	ft_to_base(unsigned long long nb, int base, int upper, int *i)
 {
-	char	n;
-
-	if (nb < 0)
-		ft_putnbr(nb * (-1));
-	else
+	if (nb)
 	{
-		if (nb >= 10)
-			ft_putnbr(nb / 10);
-		n = (nb % 10) + '0';
-		write(1, &n, 1);
+        *i += 1;
+		ft_to_base(nb / base, base, upper, i);
+		if (upper)
+			write(1, &BASE_16_UPPER[nb % base], 1);
+		else
+			write(1, &BASE_16_LOWER[nb % base], 1);
 	}
-	return (0);
 }
+

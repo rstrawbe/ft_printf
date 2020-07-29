@@ -47,6 +47,7 @@ int					render_arg_char(t_spec *spec, va_list ap);
 int					render_arg_string(t_spec *spec, va_list ap);
 int					render_arg_int(t_spec *spec, va_list ap);
 int					render_arg_uint(t_spec *spec, va_list ap);
+int					render_arg_addr(t_spec *spec, va_list ap);
 
 int					print_sign(int	num, t_spec *spec);
 int					ft_digit_len(long long num);
@@ -54,10 +55,15 @@ int					ft_digit_len(long long num);
 int					ft_strlen(char	*str);
 int					ft_print_char(char s, int count);
 int					ft_print_str(char *str, int	pricision);
-int					ft_putnbr(long long nb);
+int					ft_putnbr(unsigned long long nb);
+void				ft_to_base(unsigned long long nb, int base, int upper, int *i);
+void					to_base_cnt(unsigned long long nb, int base, int *i);
 
 # define FT_PRINTF_CONV "cspdiuxX%"
 # define FT_PRINTF_FLAGS "-+0.*"
 # define FT_PRINTF_NULL_STR "(null)"
+
+# define BASE_16_UPPER "0123456789ABCDEF"
+# define BASE_16_LOWER "0123456789abcdef"
 
 #endif

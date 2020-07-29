@@ -23,5 +23,6 @@ int		render_argument(t_spec *spec, va_list ap)
 	i += (spec->format == 'd') ? render_arg_int(spec, ap) : 0;
 	i += (spec->format == 'i') ? render_arg_int(spec, ap) : 0;
 	i += (spec->format == 'u') ? render_arg_uint(spec, ap) : 0;
+	i += (spec->format == 'p') ? render_arg_addr(spec, ap) : 0;
 	return (i);
 }
