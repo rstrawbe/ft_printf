@@ -48,6 +48,7 @@ int					render_arg_string(t_spec *spec, va_list ap);
 int					render_arg_int(t_spec *spec, va_list ap);
 int					render_arg_uint(t_spec *spec, va_list ap);
 int					render_arg_addr(t_spec *spec, va_list ap);
+int					render_arg_base16(t_spec *spec, va_list ap);
 
 int					print_sign(int	num, t_spec *spec);
 int					ft_digit_len(long long num);
