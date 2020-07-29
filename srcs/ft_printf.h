@@ -55,7 +55,6 @@ int					ft_strlen(char	*str);
 int					ft_print_char(char s, int count);
 int					ft_print_str(char *str, int	pricision);
 int					ft_putnbr(long long nb);
-int					ft_print_num(long long num);
 
 # define FT_PRINTF_CONV "cspdiuxX%"
 # define FT_PRINTF_FLAGS "-+0.*"
