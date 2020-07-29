@@ -57,8 +57,8 @@ int					ft_strlen(char	*str);
 int					ft_print_char(char s, int count);
 int					ft_print_str(char *str, int	pricision);
 int					ft_putnbr(unsigned long long nb);
-void				ft_to_base(unsigned long long nb, int base, int upper, int *i);
-void					to_base_cnt(unsigned long long nb, int base, int *i);
+void				ft_to_base(unsigned long long n, int b, int u, int *i);
+void				to_base_cnt(unsigned long long nb, int base, int *i);
 
 # define FT_PRINTF_CONV "cspdiuxX%"
 # define FT_PRINTF_FLAGS "-+0.*"
