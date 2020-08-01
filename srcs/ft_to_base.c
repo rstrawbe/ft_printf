@@ -14,6 +14,14 @@
 
 void	ft_to_base(unsigned long long n, int b, int u, int *i)
 {
+	if (n == 0 && !*i)
+	{
+		*i += 1;
+		if (u)
+			write(1, &BASE_16_UPPER[n % b], 1);
+		else
+			write(1, &BASE_16_LOWER[n % b], 1);
+	}
 	if (n)
 	{
 		*i += 1;

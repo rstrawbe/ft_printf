@@ -17,6 +17,7 @@ char	*get_digit_while_int(char *str, int *dest, int *spec_len)
 	int		res;
 
 	res = 0;
+	*dest = 0;
 	if (*str == '0')
 	{
 		*spec_len += 1;

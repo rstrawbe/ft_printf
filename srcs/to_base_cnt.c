@@ -14,9 +14,12 @@
 
 void		to_base_cnt(unsigned long long nb, int base, int *i)
 {
+	if (nb == 0 && !*i)
+		*i += 1;
 	if (nb)
 	{
 		*i += 1;
 		to_base_cnt(nb / base, base, i);
 	}
+	
 }

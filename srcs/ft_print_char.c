@@ -19,7 +19,7 @@ int		ft_print_char(char s, int count)
 	i = 0;
 	if (count < 0)
 		return (0);
-	while (count)
+	while (count > 0)
 	{
 		i += write(1, &s, 1);
 		count--;

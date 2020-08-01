@@ -17,12 +17,15 @@ int						render_arg_addr(t_spec *spec, va_list ap)
 	unsigned long long	number;
 	int					strlen;
 	int					fill_width;
+	char				fill;
 	int					i;
 
 	i = 0;
 	strlen = 2;
 	number = va_arg(ap, unsigned long long);
+	spec->width = spec->width > spec->prec ? spec->width : spec->prec;
 	to_base_cnt(number, 16, &strlen);
+	fill = spec->prec ? '0' : ' ';
 	fill_width = spec->width - strlen;
 	if (!spec->to_left)
 		while (fill_width-- > 0)
