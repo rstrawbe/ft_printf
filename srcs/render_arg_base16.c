@@ -25,6 +25,7 @@ int						render_arg_base16(t_spec *spec, va_list ap)
 	upper = spec->format == 'X' ? 1 : 0;
 	number = va_arg(ap, unsigned long long);
 	to_base_cnt(number, 16, &strlen);
+	strlen = number == 0 ? 1 : strlen;
 	fill_width = spec->width - strlen;
 	spec->prec -= strlen;
 	fill_width = spec->prec > 0 ? fill_width - spec->prec : fill_width;
