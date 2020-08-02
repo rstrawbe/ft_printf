@@ -21,14 +21,17 @@ void	set_fields(t_spec *s, char *p, va_list ap)
 	s->first_space = (*p == ' ') ? '1' : s->first_space;
 	s->fill_zero = (*p == '0'
 			&& !s->width && !s->prec) ? '1' : s->fill_zero;
-	s->width = (*p == '*' && !s->dot) ? va_arg(ap, int) : s->width;
+	if (*p == '*' && !s->dot)
+	{
+		s->width = va_arg(ap, int);
+		s->width_init = '1';
+	}
 	s->to_left = s->width < 0 ? '1' : s->to_left;
 	s->width = s->width < 0 ? s->width * -1 : s->width;
 	if (*p == '*' && s->dot)
 	{
 		s->prec = va_arg(ap, int);
+		s->prec_init = '1';
 		s->error = s->width == 0 ? '1' : s->error;
 	}
-	//s->prec = (*p == '*' && s->dot) ? va_arg(ap, int) : s->prec;
-	//s->prec = s->prec < 0 ? 0 : s->prec;
 }
