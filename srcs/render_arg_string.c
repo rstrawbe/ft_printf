@@ -23,7 +23,8 @@ int		render_arg_string(t_spec *spec, va_list ap)
 	if (!(str = va_arg(ap, char *)))
 		str = FT_PRINTF_NULL_STR;
 	strlen = ft_strlen(str);
-	max_str = spec->prec && spec->prec < strlen ? spec->prec : strlen;
+	max_str = spec->prec > 0 && spec->prec < strlen ? spec->prec : strlen;
+	max_str = spec->dot && spec->prec == 0 ? 0 : max_str;
 	fill = (spec->fill_zero && !spec->to_left) ? '0' : ' ';
 	fill_width = spec->width - max_str;
 	if (!spec->to_left)
