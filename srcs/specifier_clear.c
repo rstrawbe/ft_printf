@@ -16,6 +16,8 @@ void	specifier_clear(t_spec *spec)
 {
 	spec->error = 0;
 	spec->spec_len = 0;
+	spec->width_init = 0;
+	spec->prec_init = 0;
 	spec->to_left = 0;
 	spec->show_sign = 0;
 	spec->first_space = 0;
