@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_putlong(long long nb)
+static int		ft_putlong(long long nb)
 {
 	char	n;
 
@@ -28,81 +28,51 @@ static int	ft_putlong(long long nb)
 	return (0);
 }
 
-static int	ft_nbr(long long nb)
+static int		get_fill_width(t_spec *spec, int strlen)
 {
-	char	n;
+	int			width;
 
-	if (nb < 0)
-		ft_nbr(nb * (-1));
-	else
-	{
-		if (nb >= 10)
-			ft_nbr(nb / 10);
-		n = (nb % 10) + '0';
-		write(1, &n, 1);
-	}
-	return (0);
+	width = spec->width - spec->show_sign;
+	width -= spec->prec > strlen ? spec->prec : strlen;
+	return (width);
 }
 
-int		render_arg_int(t_spec *spec, va_list ap)
+static char		get_fill(t_spec *spec, int strlen)
 {
-	int		number;
-	int		fill_width;
-	int		strlen;
-	int		i;
+	char		fill;
+
+	fill = spec->to_left || !spec->fill_zero ? ' ' : '0';
+	fill = spec->fill_zero && spec->prec > strlen ? ' ' : fill;
+	fill = spec->fill_zero && spec->prec > 0 ? ' ' : fill;
+	spec->prec -= strlen;
+	return (fill);
+}
+
+int				render_arg_int(t_spec *spec, va_list ap)
+{
+	int			number;
+	int			fill_width;
+	int			strlen;
+	int			i;
+	char		fill;
 
 	i = 0;
 	number = va_arg(ap, int);
 	strlen = !number && !spec->prec ? 0 : ft_digit_len(number);
+	strlen = number == 0 && !spec->dot ? 1 : strlen;
 	spec->show_sign = number < 0 ? 1 : spec->show_sign;
-	spec->width = spec->width > spec->prec ? spec->width : spec->prec;
-	fill_width = spec->width - strlen - spec->show_sign;
-	spec->prec -= strlen;
-	fill_width = spec->prec > 0 ? fill_width - spec->prec : fill_width;
-	i = !spec->to_left ? ft_print_char(' ', fill_width) : i;
-	i += print_sign(number, spec);
-	while (spec->prec-- > 0)
-		i += ft_print_char('0', 1);
-	i += !number && !strlen ? 0 : ft_putnbr(number);
-	i = (spec->to_left) ? i + ft_print_char(' ', fill_width) : i;
+	fill_width = get_fill_width(spec, strlen);
+	fill = get_fill(spec, strlen);
+	if (spec->to_left)
+	{
+		i += print_sign(number, spec) + ft_print_char('0', spec->prec);
+		i += !number && !strlen ? 0 : ft_putlong(number);
+		return (i + strlen + ft_print_char(fill, fill_width));
+	}
+	i += (fill == '0') ? print_sign(number, spec) : 0;
+	i += ft_print_char(fill, fill_width);
+	i += (fill == ' ') ? print_sign(number, spec) : 0;
+	i += ft_print_char('0', spec->prec);
+	i += !number && !strlen ? 0 : ft_putlong(number);
 	return (i + strlen);
 }
-
-// int		render_arg_int(t_spec *spec, va_list ap)
-// {
-// 	int		number;
-// 	int		fill_width;
-// 	int		strlen;
-// 	int		i;
-// 	char	fill;
-
-// 	i = 0;
-// 	number = va_arg(ap, int);
-// 	strlen = !number && !spec->prec ? 0 : ft_digit_len(number);
-// 	spec->show_sign = number < 0 ? 1 : spec->show_sign;
-// 	spec->width = spec->width > spec->prec ? spec->width : spec->prec;
-// 	fill_width = spec->width - strlen - spec->show_sign;
-// 	spec->prec -= strlen;
-// 	fill_width = spec->prec > 0 ? fill_width - spec->prec : fill_width;
-// 	//fill = spec->fill_zero && !spec->to_left ? '0' : ' ';
-// 	fill = (spec->prec > 0 || spec->fill_zero) && !spec->to_left ? '0' : ' ';
-
-// 	if (strlen < spec->width)
-// 		i += print_sign(number, spec);
-// 	if (!spec->to_left)
-// 	{
-// 		while (fill_width-- > 0)
-// 			i += ft_print_char(fill, 1);
-
-// 		while (spec->prec > strlen && spec->prec-- > 0)
-// 			i += ft_print_char('0', 1);
-
-// 	}
-// 	if (strlen >= spec->width)
-// 		i += print_sign(number, spec);
-// 	i += spec->prec > 0 ? ft_print_char(fill, spec->prec) : 0;
-// 	i += !number && !strlen ? 0 : ft_putlong(number);
-// 	i += fill_width > 0 ? ft_print_char(fill, fill_width) : 0;
-
-// 	return (i + strlen);
-// }
