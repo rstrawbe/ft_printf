@@ -19,11 +19,11 @@ int		render_arg_char(t_spec *spec, va_list ap)
 	int		fill_width;
 
 	if (!(ch = va_arg(ap, int)))
-		ch = 0;
+		ch = '\0';
 	fill = (spec->fill_zero && !spec->to_left) ? '0' : ' ';
 	fill_width = spec->width - 1;
 	if (!spec->to_left)
-		return (ft_print_char(fill, fill_width) + ft_print_str(&ch, 1));
+		return (ft_print_char(fill, fill_width) + ft_print_char(ch, 1));
 	else
-		return (ft_print_str(&ch, 1) + ft_print_char(fill, fill_width));
+		return (ft_print_char(ch, 1) + ft_print_char(fill, fill_width));
 }
