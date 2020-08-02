@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_to_base(unsigned long long n, int b, int u, int *i)
+int	ft_to_base(unsigned long long n, int b, int u, int *i)
 {
 	if (n == 0 && !*i)
 	{
@@ -31,4 +31,5 @@ void	ft_to_base(unsigned long long n, int b, int u, int *i)
 		else
 			write(1, &BASE_16_LOWER[n % b], 1);
 	}
+	return (0);
 }
