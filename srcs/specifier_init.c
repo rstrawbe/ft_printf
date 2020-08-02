@@ -21,9 +21,9 @@ int		specifier_init(t_spec *spec, char *str, va_list ap)
 	{
 		set_fields(spec, str, ap);
 		if (is_digit(str) && !spec->dot && !spec->width)
-			str = get_digit_while_int(str, &spec->width, &spec->spec_len);
+			str = get_digit_while_int(str, &spec->width, spec);
 		else if (is_digit(str) && spec->dot && !spec->prec)
-			str = get_digit_while_int(str, &spec->prec, &spec->spec_len);
+			str = get_digit_while_int(str, &spec->prec, spec);
 		else
 		{
 			spec->spec_len++;
