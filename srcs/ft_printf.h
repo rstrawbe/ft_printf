@@ -19,6 +19,8 @@
 typedef struct		s_spec
 {
 	char			error;
+	char			width_init;
+	char			prec_init;
 	int				spec_len;
 	char			to_left;
 	int				show_sign;
@@ -38,7 +40,7 @@ void				specifier_clear(t_spec *spec);
 
 int					is_flag(char *str);
 int					is_digit(char *str);
-char				*get_digit_while_int(char *str, int *dest, int *spec_len);
+char				*get_digit_while_int(char *str, int *dest, t_spec *spec);
 void				set_fields(t_spec *s, char *p, va_list ap);
 
 int					render_argument(t_spec *spec, va_list ap);
