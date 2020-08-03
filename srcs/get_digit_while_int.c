@@ -18,11 +18,10 @@ char	*get_digit_while_int(char *str, int *dest, t_spec *spec)
 
 	res = 0;
 	*dest = 0;
-	// if (spec->dot)
-	// 	spec->prec_init = '1';
-	// else if (is_digit(str + 1))
-	// 	spec->width_init = '1';
-
+	if (spec->dot)
+		spec->prec_init = '1';
+	else if (*str && is_digit(str))
+		spec->width_init = '1';
 	if (*str == '0')
 	{
 		spec->spec_len += 1;

@@ -21,5 +21,4 @@ void		to_base_cnt(unsigned long long nb, int base, int *i)
 		*i += 1;
 		to_base_cnt(nb / base, base, i);
 	}
-	
 }
