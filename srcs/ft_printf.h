@@ -32,8 +32,6 @@ typedef struct		s_spec
 	char			format;
 }					t_spec;
 
-void				specifier_print(t_spec *spec);
-
 int					ft_printf(const char *str, ...);
 int					specifier_init(t_spec *spec, char *str, va_list ap);
 void				specifier_clear(t_spec *spec);
