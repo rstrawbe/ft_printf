@@ -16,7 +16,8 @@ static int				print_zero(t_spec *spec)
 {
 	if ((spec->width_init && spec->width && !spec->dot)
 		|| (spec->prec_init && spec->prec && spec->dot)
-		|| (!spec->width_init && !spec->prec_init && !spec->dot))
+		|| (!spec->width_init && !spec->prec_init && !spec->dot)
+		|| (spec->dot && spec->error))
 		return (ft_print_char('0', 1));
 	return (0);
 }

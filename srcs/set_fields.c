@@ -32,6 +32,6 @@ void	set_fields(t_spec *s, char *p, va_list ap)
 	{
 		s->prec = va_arg(ap, int);
 		s->prec_init = '1';
-		s->error = s->width == 0 ? '1' : s->error;
+		s->error = s->prec < 0 ? '1' : s->error;
 	}
 }

@@ -12,6 +12,20 @@
 
 #include "ft_printf.h"
 
+static int				print_zero(t_spec *spec, unsigned long long num)
+{
+	int					i;
+
+	i = 0;
+	if (!spec->to_left)
+		while (spec->prec-- > 0)
+			i += ft_print_char('0', 1);
+	i += spec->prec > 0 ? ft_print_char('0', spec->prec) : 0;
+	i += (!num && (!spec->dot && spec->prec)
+		|| (spec->error && !num)) ? ft_print_char('0', 1) : 0;
+	return (i);
+}
+
 int						render_arg_base16(t_spec *spec, va_list ap)
 {
 	unsigned long long	num;
@@ -34,11 +48,7 @@ int						render_arg_base16(t_spec *spec, va_list ap)
 	if (!spec->to_left)
 		while (fill_width-- > 0)
 			i += ft_print_char(fill, 1);
-	if (!spec->to_left)
-		while (spec->prec-- > 0)
-			i += ft_print_char('0', 1);
-	i += spec->prec > 0 ? ft_print_char('0', spec->prec) : 0;
-	i += (!num && (!spec->dot && spec->prec)) ? ft_print_char('0', 1) : 0;
+	i += print_zero(spec, num);
 	num ? ft_to_base(num, 16, spec->format == 'X', &i) : 0;
 	i += fill_width > 0 ? ft_print_char(' ', fill_width) : 0;
 	return (i);
