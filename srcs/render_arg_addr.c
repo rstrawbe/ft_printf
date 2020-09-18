@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 22:14:41 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/30 02:28:54 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:30:05 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static int				print_zero(t_spec *spec)
 {

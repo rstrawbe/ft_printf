@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:31:29 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 20:13:01 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:28:42 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int		ft_strlen(char *str)
 {

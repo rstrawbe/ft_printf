@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 01:44:08 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/30 02:35:21 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:33:11 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void		to_base_cnt(unsigned long long nb, int base, int *i)
 {

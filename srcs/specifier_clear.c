@@ -6,15 +6,16 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:34:03 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 19:34:17 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:32:06 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	specifier_clear(t_spec *spec)
 {
 	spec->error = 0;
+	spec->err_left = 0;
 	spec->spec_len = 0;
 	spec->width_init = 0;
 	spec->prec_init = 0;

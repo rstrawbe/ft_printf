@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:32:58 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 19:33:01 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:30:59 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int		render_arg_percent(t_spec *spec)
 {

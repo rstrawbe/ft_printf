@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:35:28 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 19:35:35 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:32:28 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int		specifier_init(t_spec *spec, char *str, va_list ap)
 {

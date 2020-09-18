@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:31:16 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/26 19:31:18 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:28:28 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_putnbr(unsigned long long nb)
 {

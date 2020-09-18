@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 22:09:03 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/28 23:09:44 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:31:29 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int		render_arg_uint(t_spec *spec, va_list ap)
 {
@@ -30,6 +30,8 @@ int		render_arg_uint(t_spec *spec, va_list ap)
 	fill = ' ';
 	if (spec->fill_zero && !spec->dot)
 		fill = '0';
+	fill = spec->fill_zero && (spec->err_left || spec->error) ? '0' : fill;
+	fill = spec->fill_zero && (spec->err_left && !spec->prec) ? ' ' : fill;
 	fill_width = spec->prec > 0 ? fill_width - spec->prec : fill_width;
 	i = !spec->to_left ? ft_print_char(fill, fill_width) : i;
 	while (spec->prec-- > 0)

@@ -6,11 +6,11 @@
 /*   By: rstrawbe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/30 01:20:37 by rstrawbe          #+#    #+#             */
-/*   Updated: 2020/07/30 02:17:57 by rstrawbe         ###   ########.fr       */
+/*   Updated: 2020/08/07 23:40:48 by rstrawbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_to_base(unsigned long long n, int b, int u, int *i)
 {
